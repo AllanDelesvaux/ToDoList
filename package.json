@@ -1,0 +1,87 @@
+{
+  "name": "hello-app",
+  "version": "2.1.230216",
+  "private": true,
+  "dependencies": {
+  "@ant-design/icons": "^4.6.2",
+  "@fortawesome/fontawesome-svg-core": "^1.2.29",
+  "@fortawesome/free-solid-svg-icons": "^5.13.1",
+  "@fortawesome/react-fontawesome": "^0.1.11",
+  "@material-ui/core": "^4.11.3",
+  "@material-ui/icons": "^4.11.2",
+  "@react-hook/window-size": "^3.0.7",
+  "@testing-library/jest-dom": "^4.2.4",
+  "@testing-library/react": "^9.3.2",
+  "@testing-library/user-event": "^7.1.2",
+  "antd": "^4.15.1",
+  "axios": "^0.19.2",
+  "bootstrap": "^4.5.0",
+  "chart.js": "^2.9.3",
+  "classnames": "^2.3.1",
+  "country-flag-icons": "^1.2.9",
+  "env-cmd": "^8.0.2",
+  "file-saver": "^2.0.5",
+  "i18next": "^19.9.0",
+  "i18next-http-backend": "^1.2.6",
+  "node-sass": "4.14.1",
+  "pdf-viewer-reactjs": "^2.1.2",
+  "rc-queue-anim": "^1.8.5",
+  "rc-tween-one": "^2.7.3",
+  "react": "^16.13.1",
+  "react-bootstrap": "^1.1.0",
+  "react-chartjs-2": "^2.9.0",
+  "react-csv": "^2.0.3",
+  "react-dates": "^21.8.0",
+  "react-device-detect": "^1.17.0",
+  "react-dom": "^16.13.1",
+  "react-export-excel": "^0.5.3",
+  "react-grid-layout": "^1.2.4",
+  "react-html-table-to-excel": "^2.0.0",
+  "react-i18next": "^11.8.8",
+  "react-pdf": "^5.0.0",
+  "react-redux": "^7.2.0",
+  "react-router-dom": "^5.2.0",
+  "react-scripts": "3.4.1",
+  "react-select": "^3.1.0",
+  "react-sizeme": "^3.0.2",
+  "react-sticky": "^6.0.3",
+  "react-stickynode": "^3.0.5",
+  "react-table": "^7.7.0",
+  "react-transition-group": "^4.4.1",
+  "react-window": "^1.8.5",
+  "redux": "^4.0.5",
+  "uniqid": "^5.2.0",
+  "virtuallist-antd": "^0.4.9",
+  "eslint": "^6.6.0",
+  "jest": "24.9.0",
+  "webpack-dev-server": "3.10.3"
+  },
+  "scripts": {
+  "start": "env-cmd .env.dev react-scripts start",
+  "build": "react-scripts build",
+  "build:dev": "env-cmd .env.dev npm run build",
+  "build:production": "env-cmd .env.prod npm run build",
+  "build:recette": "env-cmd .env.recette npm run build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+  },
+  "___eslintConfig": {
+  "extends": "react-app"
+  },
+  "browserslist": {
+  "production": [
+  ">0.2%",
+  "not dead",
+  "not op_mini all"
+  ],
+  "development": [
+  "last 1 chrome version",
+  "last 1 firefox version",
+  "last 1 safari version"
+  ]
+  },
+  "devDependencies": {
+  "i18next-scanner": "^3.0.0"
+  }
+  }
+  
