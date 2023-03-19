@@ -1,39 +1,95 @@
 import React from 'react';
-import Action from './Action';
-import EnterTask from './EnterTask';
+import Header from './Header';
+import Footer from './Footer';
 import Task from './Task';
 
-const App = () => {
-    var tasks =[ {"title":"1.Idée","isChecked":true},{"title":"2.Marché","isChecked":true},{"title":"3.Wireframe","isChecked":true},{"title":"4.Design","isChecked":true},{"title":"5.Landingpage","isChecked":true},{"title":"6.Développement","isChecked":false},{"title":"7.Publish","isChecked":false},{"title":"8.Pub","isChecked":false},{"title":"9.Feedback","isChecked":false}];
-    localStorage.setItem('tasks',JSON.stringify(tasks));
+export default class App extends React.Component{
 
-    return (
+    constructor(props){
+        super(props);
+        this.state ={
+            tasks : JSON.parse(localStorage.getItem('tasks')),
+        }
+    }
 
-        <div id="app">
-            <div class="w-full h-screen bg-gray-100 pt-8">
-                <div class="bg-white p-3 max-w-md mx-auto">
-                    <div class="text-center">
-                        <h1 class="text-3xl font-bold">ToDo App</h1>
-                        <EnterTask />
-                    </div>
-                    <div class="mt-8">
-                        <ul>
-                            <Task name={tasks[0].title} isChecked={tasks[0].isChecked} />
-                        </ul>
-                    </div>
-                    <div class="mt-8">
-                        <Action value={"clear"} />
-                        <Action value={"save"} />
-                    </div>
+    //localStorage.setItem('tasks',JSON.stringify(tasks));
+
+    render() {
+
+        return (
+
+            <div className="app">
+                <div className="app-header">
+                    <Header done={this.nbChecked()} all={this.state.tasks.length} />
+                </div>
+
+                <div className="app-body">
+                    {this.alltasks()}
+                </div>
+
+                <div className="app-footer">
+                    <Footer addTask={() => this.addTask()}/>
                 </div>
             </div>
-        </div>
-    )
+        );
+    }
+
+    nbChecked(){
+        let cp = 0;
+        for(let i=0;i<this.state.tasks.length;i++){
+            if(this.state.tasks[i]["isChecked"])(
+                cp++
+            )
+        }
+        
+        return cp;
+    }
+
+
+    alltasks(){
+        
+        let tabb = [];
+
+        for(let i=0 ;i<this.state.tasks.length;i++){
+            tabb.push(<Task key={i} title={this.state.tasks[i].title} isChecked={this.state.tasks[i].isChecked} checkOrUncheck={() => this.checkOrUncheck(i)} deletetask={() => this.deletetask(i)} searchTask={() => this.searchTask()}/>);
+        }
+
+        return(tabb);
+    }
+
+    checkOrUncheck(pos){
+        let newTasks = this.state.tasks.slice();
+        newTasks[pos]['isChecked'] = !newTasks[pos]['isChecked'];
+
+        this.setState({
+            tasks: newTasks,
+        })
+
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    }
+
+    deletetask(pos){
+        let newTasks = this.state.tasks.slice(pos);
+        //newTasks.push(this.state.tasks.slice(pos+1));
+        
+        this.setState({
+            tasks: newTasks,
+        })
+
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    }
+
+    searchTask(){
+
+    }
+
+    addTask(){
+        let newTasks= this.state.tasks.slice();
+
+        alert("Entrez le nom de la tâche");
+        
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    }
 
 }
-export default App;
 
-/*task.array.forEach(element => {
-    <Task value={element} />
-}
-);*/
