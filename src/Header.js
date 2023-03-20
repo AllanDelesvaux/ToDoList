@@ -4,7 +4,10 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <h1 className="head"> Tâches terminées : {this.props["done"]} / {this.props["all"]} </h1>
+            <div>
+            <h1 className="head"> ToDo List ! </h1>
+            <h2>Tâches terminées : {this.props["done"]} / {this.props["all"]} </h2>
+            </div>
         );
     }
 
